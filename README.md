@@ -2,7 +2,7 @@
 - 👀 I’m interested in Web Development, and Management.
 - 🌱 I’m currently learning MERN, JS, DBMS, CyberSecurity.
 - 💞️ I’m looking to collaborate as Team Member, and open source Project.
-- 📫 How to reach me ...<h6> Updating Soon</h6>
+- 📫 How to reach me ...Updating Soon
 - 😄 Pronouns: He/Him
 - ⚡ Interests: Travelling, Writing, Music, Cats.
 
