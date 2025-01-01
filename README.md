@@ -16,7 +16,7 @@
 
 - 💬 Ask me about **Anything related to web development.**
 
-- 📫 How to reach me **n4zt.global@gmail.com**
+- 📫 Reach me via mail 💌 **n4zt.global@gmail.com**
 
 ### Blogs posts
 <!-- BLOG-POST-LIST:START -->
