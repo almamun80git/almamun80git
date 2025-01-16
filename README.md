@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm SAYEED</h1>
+ <h1 align="center">Hi 👋, I'm SAYEED</h1>
 <h3 align="center">A passionate backend developer from BD</h3>
 <h3 Align="left">You can reach me here</h3>
 
@@ -17,6 +17,8 @@
 - 💬 Ask me about **Anything related to web development.**
 
 - 📫 Reach me via mail 💌 **n4zt.global@gmail.com**
+
+- [![roadmap.sh](https://roadmap.sh/card/tall/6788ccdf98c00f7117772e6f?variant=dark&roadmaps=full-stack)](https://roadmap.sh)
 
 ### Blogs posts
 <!-- BLOG-POST-LIST:START -->
