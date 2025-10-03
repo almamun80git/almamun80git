@@ -19,8 +19,6 @@
 
 - 📫 Reach me via mail 💌 **n4zt.global@gmail.com**
 
-- [![roadmap.sh](https://roadmap.sh/card/tall/6788ccdf98c00f7117772e6f?variant=dark&roadmaps=full-stack)](https://roadmap.sh)
-
 ### Blogs posts
 <!-- BLOG-POST-LIST:START -->
 Updating Soon
