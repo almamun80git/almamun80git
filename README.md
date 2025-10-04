@@ -11,7 +11,7 @@
 
 - 🔭 I’m currently working on [Pages Hosted "N4ZT"](https://n4zt.me)
 
-- 🌱 I’m currently learning **MERN, React, NextJs, Aestro, JavaScript, deployment, Java, dbms, Data science, Algorithm, people**
+- 🌱 I’m currently learning **Python, Data science, AI, RDBMS, Algorithm, people**
 
 - 👨‍💻 All of my projects are available at [Updating Soon](Here com)
 
