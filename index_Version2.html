@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Sayeed80git | Python Developer & DevOps Learner</title>
+
+  <meta
+    name="description"
+    content="Personal developer portfolio showcasing Python, web development, desktop apps, frameworks, and DevOps learning."
+  />
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-secondary: #0c1a2d;
+      --card: rgba(15, 31, 52, 0.78);
+      --card-solid: #10233b;
+      --text: #ecf5ff;
+      --muted: #9bb0c7;
+      --primary: #66e3ff;
+      --secondary: #8b7cff;
+      --accent: #6df0ad;
+      --border: rgba(255, 255, 255, 0.1);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      --radius: 20px;
+    }
+
+    body.light-theme {
+      --bg: #f4f8fc;
+      --bg-secondary: #e7eff8;
+      --card: rgba(255, 255, 255, 0.82);
+      --card-solid: #ffffff;
+      --text: #10233b;
+      --muted: #58708c;
+      --primary: #007ea7;
+      --secondary: #5a4de7;
+      --accent: #15945b;
+      --border: rgba(16, 35, 59, 0.12);
+      --shadow: 0 20px 60px rgba(39, 75, 110, 0.14);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(102, 227, 255, 0.08), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(139, 124, 255, 0.09), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      line-height: 1.6;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1140px, 92%);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      color: var(--primary);
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 14px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(100deg, var(--primary), var(--secondary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 20px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-weight: 800;
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary);
+    }
+
+    .btn-primary {
+      color: #04101b;
+      border-color: transparent;
+      background: linear-gradient(100deg, var(--primary), var(--accent));
+    }
+
+    .btn-secondary {
+      background: var(--card);
+      color: var(--text);
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 18px 0;
+      background: rgba(7, 17, 31, 0.62);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid transparent;
+      transition: 0.25s ease;
+    }
+
+    body.light-theme .site-header {
+      background: rgba(244, 248, 252, 0.72);
+    }
+
+    .site-header.scrolled {
+      border-bottom-color: var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn,
+    .menu-btn {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: var(--card);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .menu-btn {
+      display: none;
+      border-radius: 10px;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 150px 0 100px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--card);
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 14px var(--accent);
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+      margin-bottom: 25px;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 35px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .terminal {
+      position: relative;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(8, 18, 32, 0.84);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .terminal::before {
+      content: "";
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      top: -100px;
+      right: -80px;
+      background: var(--secondary);
+      filter: blur(80px);
+      opacity: 0.45;
+    }
+
+    .terminal-top {
+      display: flex;
+      gap: 7px;
+      margin-bottom: 22px;
+    }
+
+    .terminal-top span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+
+    .terminal-top span:nth-child(1) { background: #ff6b6b; }
+    .terminal-top span:nth-child(2) { background: #ffd166; }
+    .terminal-top span:nth-child(3) { background: #6df0ad; }
+
+    .terminal pre {
+      position: relative;
+      z-index: 1;
+      color: #d9efff;
+      font-size: 0.9rem;
+      overflow-x: auto;
+    }
+
+    .code-keyword { color: #ff9cef; }
+    .code-function { color: #66e3ff; }
+    .code-string { color: #6df0ad; }
+    .code-comment { color: #7290ad; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 70px;
+    }
+
+    .stat-card,
+    .card {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .stat-card h3 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .stat-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .about-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .about-card p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .check-list li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .skills-grid,
+    .tools-grid,
+    .projects-grid,
+    .devops-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      min-height: 245px;
+    }
+
+    .skill-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(102, 227, 255, 0.17), rgba(139, 124, 255, 0.2));
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 22px;
+    }
+
+    .skill-card h3,
+    .tool-card h3,
+    .devops-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .skill-card p,
+    .tool-card p,
+    .devops-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      border-radius: 7px;
+      color: var(--primary);
+      background: rgba(102, 227, 255, 0.08);
+      border: 1px solid rgba(102, 227, 255, 0.14);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .roadmap {
+      position: relative;
+      display: grid;
+      gap: 20px;
+    }
+
+    .roadmap::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 18px;
+      width: 2px;
+      background: linear-gradient(var(--primary), var(--secondary), transparent);
+    }
+
+    .roadmap-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 55px 1fr;
+      gap: 20px;
+    }
+
+    .roadmap-marker {
+      position: relative;
+      z-index: 2;
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      background: var(--bg);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 0.85rem;
+    }
+
+    .roadmap-content {
+      padding: 23px;
+    }
+
+    .roadmap-content h3 {
+      margin-bottom: 7px;
+    }
+
+    .roadmap-content p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .project-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 9px 15px;
+      color: var(--muted);
+      background: var(--card);
+      cursor: pointer;
+      font-weight: 800;
+      transition: 0.2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      color: #061321;
+      border-color: transparent;
+      background: var(--primary);
+    }
+
+    .project-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .project-image {
+      min-height: 170px;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 2rem;
+      background:
+        linear-gradient(135deg, rgba(102, 227, 255, 0.3), rgba(139, 124, 255, 0.5)),
+        #122943;
+    }
+
+    .project-card:nth-child(2) .project-image {
+      background:
+        linear-gradient(135deg, rgba(109, 240, 173, 0.25), rgba(102, 227, 255, 0.42)),
+        #122943;
+    }
+
+    .project-card:nth-child(3) .project-image {
+      background:
+        linear-gradient(135deg, rgba(255, 156, 239, 0.28), rgba(139, 124, 255, 0.48)),
+        #122943;
+    }
+
+    .project-info {
+      padding: 24px;
+    }
+
+    .project-info h3 {
+      margin-bottom: 9px;
+    }
+
+    .project-info p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 15px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .project-card.hidden {
+      display: none;
+    }
+
+    .devops-flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 30px;
+      margin-bottom: 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+    }
+
+    .flow-step {
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: var(--bg-secondary);
+      color: var(--primary);
+      font-weight: 800;
+      border: 1px solid var(--border);
+    }
+
+    .flow-arrow {
+      color: var(--muted);
+      font-size: 1.3rem;
+    }
+
+    .devops-card {
+      min-height: 190px;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      padding: 40px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(102, 227, 255, 0.12), rgba(139, 124, 255, 0.13)),
+        var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box h2 {
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    footer {
+      padding: 30px 0;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-links a:hover {
+      color: var(--primary);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 950px) {
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 130px;
+      }
+
+      .terminal {
+        max-width: 650px;
+      }
+
+      .skills-grid,
+      .tools-grid,
+      .projects-grid,
+      .devops-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .section {
+        padding: 80px 0;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 78px;
+        left: 4%;
+        right: 4%;
+        display: none;
+        flex-direction: column;
+        padding: 22px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: var(--card-solid);
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.9rem, 16vw, 5rem);
+      }
+
+      .skills-grid,
+      .tools-grid,
+      .projects-grid,
+      .devops-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-box {
+        grid-template-columns: 1fr;
+        padding: 28px;
+      }
+
+      .devops-flow {
+        justify-content: flex-start;
+      }
+
+      .flow-arrow {
+        display: none;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions,
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .hero-actions .btn {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a href="#home" class="logo">&lt;sayeed<span>/dev&gt;</span></a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#projects">Projects</a>
+        <a href="#devops">DevOps</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+          ☼
+        </button>
+
+        <button class="menu-btn" id="menuToggle" aria-label="Toggle menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="reveal">
+            <div class="eyebrow">
+              <span class="status-dot"></span>
+              Currently learning and building
+            </div>
+
+            <h1>
+              Python developer<br />
+              <span class="gradient-text">& DevOps explorer.</span>
+            </h1>
+
+            <p class="hero-description">
+              I am building practical web applications, desktop tools, APIs,
+              and deployment workflows while growing into a modern full-stack
+              and DevOps-focused developer.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">View my projects →</a>
+              <a href="#roadmap" class="btn btn-secondary">Explore my roadmap</a>
+            </div>
+
+            <div class="hero-meta">
+              <span>⌘ Python-first</span>
+              <span>◈ Web applications</span>
+              <span>⚙ Automation-minded</span>
+            </div>
+          </div>
+
+          <div class="terminal reveal">
+            <div class="terminal-top">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <pre><code><span class="code-comment"># developer_profile.py</span>
+
+<span class="code-keyword">class</span> <span class="code-function">Developer</span>:
+    focus = [
+        <span class="code-string">"Python"</span>,
+        <span class="code-string">"Web Development"</span>,
+        <span class="code-string">"DevOps"</span>,
+        <span class="code-string">"Desktop Apps"</span>
+    ]
+
+    <span class="code-keyword">def</span> <span class="code-function">build</span>(self):
+        <span class="code-keyword">return</span> <span class="code-string">
+            "Learn, build, automate, deploy"
+        </span></code></pre>
+          </div>
+        </div>
+
+        <div class="stats reveal">
+          <div class="stat-card">
+            <h3>01</h3>
+            <p>Developer journey</p>
+          </div>
+
+          <div class="stat-card">
+            <h3>06+</h3>
+            <p>Core technology areas</p>
+          </div>
+
+          <div class="stat-card">
+            <h3>24/7</h3>
+            <p>Curiosity and learning</p>
+          </div>
+
+          <div class="stat-card">
+            <h3>∞</h3>
+            <p>Ideas to build</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-label">01 / About me</div>
+          <h2>Learning by <span class="gradient-text">building real things.</span></h2>
+          <p>
+            My goal is to become a versatile developer who understands not only
+            how to write code, but also how to test, deploy, automate, and
+            maintain software.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="card about-card reveal">
+            <h3>My developer direction</h3>
+            <p>
+              I am focused on developing a strong foundation in Python and
+              using it to create web applications, APIs, automation scripts,
+              and desktop software.
+            </p>
+
+            <p>
+              Alongside development, I am learning DevOps practices to
+              understand the complete journey from code to production.
+            </p>
+          </article>
+
+          <article class="card about-card reveal">
+            <h3>What I am working toward</h3>
+            <ul class="check-list">
+              <li>Create maintainable and scalable applications</li>
+              <li>Build responsive and accessible interfaces</li>
+              <li>Design clean REST APIs and database systems</li>
+              <li>Automate testing and deployment pipelines</li>
+              <li>Deploy applications using containers and cloud tools</li>
+              <li>Build a strong portfolio through practical projects</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-label">02 / Skills & technologies</div>
+          <h2>Tools for turning ideas into <span class="gradient-text">working software.</span></h2>
+          <p>
+            A growing technology stack covering backend development, frontend
+            interfaces, databases, desktop software, and infrastructure.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="card skill-card reveal">
+            <div class="skill-icon">🐍</div>
+            <h3>Python Development</h3>
+            <p>
+              Building scripts, APIs, automation tools, and application logic
+              using clean and reusable Python code.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">OOP</span>
+              <span class="tag">pytest</span>
+              <span class="tag">Automation</span>
+            </div>
+          </article>
+
+          <article class="card skill-card reveal">
+            <div class="skill-icon">🌐</div>
+            <h3>Web Development</h3>
+            <p>
+              Creating responsive user experiences and connecting frontend
+              interfaces with backend services.
+            </p>
+            <div class="tag-list">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">React</span>
+            </div>
+          </article>
+
+          <article class="card skill-card reveal">
+            <div class="skill-icon">⚡</div>
+            <h3>Backend Frameworks</h3>
+            <p>
+              Developing APIs and full-stack applications with modern Python
+              frameworks.
+            </p>
+            <div class="tag-list">
+              <span class="tag">FastAPI</span>
+              <span class="tag">Django</span>
+              <span class="tag">Flask</span>
+              <span class="tag">REST API</span>
+            </div>
+          </article>
+
+          <article class="card skill-card reveal">
+            <div class="skill-icon">🗄️</div>
+            <h3>Databases</h3>
+            <p>
+              Learning how to design, query, secure, and connect applications
+              to reliable data systems.
+            </p>
+            <div class="tag-list">
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">SQL</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">ORM</span>
+            </div>
+          </article>
+
+          <article class="card skill-card reveal">
+            <div class="skill-icon">🖥️</div>
+            <h3>Desktop Applications</h3>
+            <p>
+              Exploring desktop software with Python, native interfaces, and
+              reusable application logic.
+            </p>
+            <div class="tag-list">
+              <span class="tag">PySide6</span>
+              <span class="tag">Qt</span>
+              <span class="tag">Tkinter</span>
+              <span class="tag">PyInstaller</span>
+            </div>
+          </article>
+
+          <article class="card skill-card reveal">
+            <div class="skill-icon">🚀</div>
+            <h3>DevOps & Deployment</h3>
+            <p>
+              Learning how to package, test, deploy, monitor, and improve
+              applications in production environments.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Docker</span>
+              <span class="tag">Linux</span>
+              <span class="tag">CI/CD</span>
+              <span class="tag">Nginx</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tools">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-label">03 / Developer toolkit</div>
+          <h2>The tools behind the <span class="gradient-text">workflow.</span></h2>
+          <p>
+            A practical development environment for writing code, managing
+            projects, testing applications, and shipping software.
+          </p>
+        </div>
+
+        <div class="tools-grid">
+          <article class="card tool-card reveal">
+            <h3>Development</h3>
+            <p>Tools used to write, organize, debug, and test code.</p>
+            <div class="tag-list">
+              <span class="tag">VS Code</span>
+              <span class="tag">Python 3</span>
+              <span class="tag">Virtualenv</span>
+              <span class="tag">npm</span>
+            </div>
+          </article>
+
+          <article class="card tool-card reveal">
+            <h3>Source control</h3>
+            <p>Managing code history, collaboration, branches, and releases.</p>
+            <div class="tag-list">
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">Branches</span>
+              <span class="tag">Pull Requests</span>
+            </div>
+          </article>
+
+          <article class="card tool-card reveal">
+            <h3>Environment</h3>
+            <p>Creating consistent local and production development systems.</p>
+            <div class="tag-list">
+              <span class="tag">Linux</span>
+              <span class="tag">WSL2</span>
+              <span class="tag">Docker Desktop</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-label">04 / Learning roadmap</div>
+          <h2>A path from fundamentals to <span class="gradient-text">production.</span></h2>
+          <p>
+            A structured plan for growing from Python fundamentals into full
+            application development and DevOps.
+          </p>
+        </div>
+
+        <div class="roadmap">
+          <article class="roadmap-item reveal">
+            <div class="roadmap-marker">01</div>
+            <div class="card roadmap-content">
+              <h3>Python foundations</h3>
+              <p>
+                Master syntax, functions, object-oriented programming, modules,
+                errors, files, virtual environments, and testing.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Scripts</span>
+                <span class="tag">CLI tools</span>
+                <span class="tag">Testing</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="roadmap-item reveal">
+            <div class="roadmap-marker">02</div>
+            <div class="card roadmap-content">
+              <h3>Web fundamentals</h3>
+              <p>
+                Learn HTML, CSS, JavaScript, responsive design, browser
+                behavior, accessibility, and API communication.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Frontend</span>
+                <span class="tag">Responsive UI</span>
+                <span class="tag">REST</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="roadmap-item reveal">
+            <div class="roadmap-marker">03</div>
+            <div class="card roadmap-content">
+              <h3>Full-stack applications</h3>
+              <p>
+                Build applications using FastAPI or Django, PostgreSQL,
+                authentication, forms, file uploads, and dashboards.
+              </p>
+              <div class="tag-list">
+                <span class="tag">FastAPI</span>
+                <span class="tag">Django</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="roadmap-item reveal">
+            <div class="roadmap-marker">04</div>
+            <div class="card roadmap-content">
+              <h3>DevOps and deployment</h3>
+              <p>
+                Containerize applications, automate checks with CI/CD, deploy
+                services, configure servers, and monitor applications.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Docker</span>
+                <span class="tag">GitHub Actions</span>
+                <span class="tag">Nginx</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="roadmap-item reveal">
+            <div class="roadmap-marker">05</div>
+            <div class="card roadmap-content">
+              <h3>Desktop and portfolio projects</h3>
+              <p>
+                Build polished desktop apps with PySide6 and document complete
+                projects from development through deployment.
+              </p>
+              <div class="tag-list">
+                <span class="tag">PySide6</span>
+                <span class="tag">Packaging</span>
+                <span class="tag">Portfolio</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-label">05 / Featured projects</div>
+          <h2>Projects that demonstrate <span class="gradient-text">progress.</span></h2>
+          <p>
+            Replace these examples with your own projects as you build them.
+          </p>
+        </div>
+
+        <div class="project-toolbar reveal">
+          <button class="filter-btn active" data-filter="all">All projects</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="python">Python</button>
+          <button class="filter-btn" data-filter="devops">DevOps</button>
+          <button class="filter-btn" data-filter="desktop">Desktop</button>
+        </div>
+
+        <div class="projects-grid">
+          <article class="card project-card reveal" data-category="web python">
+            <div class="project-image">📋</div>
+            <div class="project-info">
+              <h3>TaskFlow Manager</h3>
+              <p>
+                A full-stack task management application with authentication,
+                projects, priorities, and a PostgreSQL database.
+              </p>
+              <div class="tag-list">
+                <span class="tag">FastAPI</span>
+                <span class="tag">React</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+              <div class="project-links">
+                <a href="#" aria-label="View TaskFlow source code">GitHub ↗</a>
+                <a href="#" aria-label="View TaskFlow live demo">Live demo ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal" data-category="python desktop">
+            <div class="project-image">💰</div>
+            <div class="project-info">
+              <h3>Personal Expense Tracker</h3>
+              <p>
+                A Python application for recording expenses, organizing
+                categories, and viewing spending summaries.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Python</span>
+                <span class="tag">PySide6</span>
+                <span class="tag">SQLite</span>
+              </div>
+              <div class="project-links">
+                <a href="#" aria-label="View Expense Tracker source code">GitHub ↗</a>
+                <a href="#" aria-label="View Expense Tracker details">Details ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal" data-category="devops web">
+            <div class="project-image">🚀</div>
+            <div class="project-info">
+              <h3>Containerized Blog Platform</h3>
+              <p>
+                A blog application packaged with Docker and deployed through an
+                automated CI/CD workflow.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Docker</span>
+                <span class="tag">GitHub Actions</span>
+                <span class="tag">Nginx</span>
+              </div>
+              <div class="project-links">
+                <a href="#" aria-label="View Blog Platform source code">GitHub ↗</a>
+                <a href="#" aria-label="View Blog Platform deployment">Deployment ↗</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="devops">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-label">06 / DevOps mindset</div>
+          <h2>From local code to <span class="gradient-text">reliable delivery.</span></h2>
+          <p>
+            DevOps connects development and operations through automation,
+            repeatable environments, testing, deployment, and monitoring.
+          </p>
+        </div>
+
+        <div class="devops-flow reveal">
+          <span class="flow-step">Plan</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Code</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Test</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Build</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Deploy</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-step">Monitor</span>
+        </div>
+
+        <div class="devops-grid">
+          <article class="card devops-card reveal">
+            <h3>Containerization</h3>
+            <p>
+              Package applications and their dependencies into portable
+              containers using Docker and Docker Compose.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Dockerfile</span>
+              <span class="tag">Compose</span>
+            </div>
+          </article>
+
+          <article class="card devops-card reveal">
+            <h3>Continuous integration</h3>
+            <p>
+              Automatically run tests, linting, and quality checks whenever code
+              changes are pushed to a repository.
+            </p>
+            <div class="tag-list">
+              <span class="tag">GitHub Actions</span>
+              <span class="tag">pytest</span>
+            </div>
+          </article>
+
+          <article class="card devops-card reveal">
+            <h3>Deployment</h3>
+            <p>
+              Learn how to deploy applications to servers and cloud platforms
+              using Linux, Nginx, SSH, and environment variables.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Linux</span>
+              <span class="tag">Nginx</span>
+              <span class="tag">Cloud</span>
+            </div>
+          </article>
+
+          <article class="card devops-card reveal">
+            <h3>Observability</h3>
+            <p>
+              Understand application logs, errors, health checks, metrics, and
+              the signals needed to maintain a production system.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Logs</span>
+              <span class="tag">Monitoring</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-box reveal">
+          <div>
+            <div class="section-label">07 / Contact</div>
+            <h2>Let’s build something <span class="gradient-text">useful.</span></h2>
+            <p>
+              I am open to learning opportunities, collaboration, feedback, and
+              interesting software projects.
+            </p>
+          </div>
+
+          <a class="btn btn-primary" href="mailto:hello@example.com">
+            Send me an email →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© <span id="year"></span> Sayeed80git. Built with HTML, CSS & JavaScript.</p>
+
+      <div class="social-links">
+        <a href="https://github.com/almamun80git" aria-label="GitHub profile">GitHub</a>
+        <a href="#" aria-label="LinkedIn profile">LinkedIn</a>
+        <a href="#" aria-label="Email address">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const themeToggle = document.getElementById("themeToggle");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const header = document.querySelector(".site-header");
+
+    // Theme toggle
+    const savedTheme = localStorage.getItem("portfolio-theme");
+
+    if (savedTheme === "light") {
+      body.classList.add("light-theme");
+      themeToggle.textContent = "☾";
+    }
+
+    themeToggle.addEventListener("click", () => {
+      body.classList.toggle("light-theme");
+
+      const isLight = body.classList.contains("light-theme");
+      themeToggle.textContent = isLight ? "☾" : "☼";
+      localStorage.setItem("portfolio-theme", isLight ? "light" : "dark");
+    });
+
+    // Mobile navigation
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      menuToggle.textContent = navLinks.classList.contains("open") ? "×" : "☰";
+    });
+
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Header effect on scroll
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 20);
+    });
+
+    // Reveal sections on scroll
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    document.querySelectorAll(".reveal").forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+    // Project filtering
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        projectCards.forEach((card) => {
+          const categories = card.dataset.category;
+
+          if (filter === "all" || categories.includes(filter)) {
+            card.classList.remove("hidden");
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+      });
+    });
+
+    // Current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
