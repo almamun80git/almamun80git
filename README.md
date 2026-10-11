@@ -1,10 +1,7 @@
 ```
-  _____   ____    ____    _____  ____   __  __
- |  __ \ |  _ \  |  _ \  / ____|/ __ \ |  \/  |
- | |__) || |_) | | |_) || |    | |  | || \  / |
- |  _  / |  _ <  |  _ < | |    | |  | || |\/| |
- | | \ \ | |_) | | |_) || |____| |__| || |  | |
- |_|  \_\|____/  |____/  \_____|\____/ |_|  |_|
+Maverick HQ7
+N4ZT
+Munix Shadow HQ
 
 ```
 
@@ -27,10 +24,13 @@ Python developer and web enthusiast. I write scripts, build things, and break th
 **[ERP-HRM](https://github.com/yourusername/erp-hrm)**
 Enterprise Resource Planning & Human Resource Management system built on the TOE framework. Streamlining business operations and HR workflows.
 
+**[HEXAGONE-BLUE ROOM]**
+Database Mapping Project. Great Hub For Long Data Fetching By One Click Of Search in This Simple Website.
+
 ## Tools & Environment
 
-- Windows / Linux / macOS
-- VS Code, PyCharm
+- Windows / Linux
+- VS Code, PyCharm, other related tools
 - Git, GitHub
 - Postman, Insomnia
 - Docker Desktop
@@ -41,8 +41,9 @@ BBA graduate. I bridge the gap between business logic and technical implementati
 
 ## Let's Connect
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+- GitHub: [@almamun80git](https://github.com/almamun80git)
+- Email: Coming Back Soon.
+- Web: Coming Soon, Already Started Development.
 
 ---
 
